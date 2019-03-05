@@ -1,0 +1,30 @@
+﻿@model ebook2.Models.Issurance
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Issurance</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Book Title
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Redemption.BookTitle)
+        </dd>
+        <dt>
+            Last Name
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Student.LastName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IssuranceId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
