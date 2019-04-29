@@ -139,6 +139,13 @@ namespace ebook2.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var student = await _context.Student.FindAsync(id);
+            var issurance = _context.Issurance
+                .Where(i => i.StudentId == student.StudentId)
+                .FirstOrDefault();
+            if (issurance != null)
+            {
+                _context.Issurance.Remove(issurance);
+            }  
             _context.Student.Remove(student);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
